@@ -6,4 +6,11 @@ const arr = ['a','b','c','e','h','z'];
 
 // Less efficient method - O(n)
 
+function search (arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) return i;
+    }
+}
+
+console.log("Target index value: ", search(arr, 'e'))
 
