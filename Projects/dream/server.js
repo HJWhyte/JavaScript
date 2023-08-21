@@ -1,13 +1,11 @@
 import * as dotenv from 'dotenv';           // Allows access to env variables
 dotenv.config();                        
 
-import { Configuration, OpenAIApi } from 'openai';                 // Import config and required API
+import OpenAI from "openai";                 // Import config and required API
 
-const configuration = new Configuration ({
-    apiKey: process.env.OPENAI,                       // Authorize via API Key
-}); 
-
-const openai = new OpenAIApi(configuration);   // Initialize OpenAI API SDK
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI
+});                                                    // Initialize OpenAI API SDK
 
 import express from 'express';
 import cors from 'cors';
@@ -30,3 +28,4 @@ app.post("/dream", async (req, res) => {
     res.send({ image });  // Send image in response 
 })
 
+app.listen(8000, () => console.log('View the app: http://localhost:8000/dream'));
