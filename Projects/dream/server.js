@@ -18,14 +18,14 @@ app.post("/dream", async (req, res) => {
 
     const prompt = req.body.prompt;   // Read request body prompt 
 
-    const aiResponse = await openai.createImage({         // Create 1 image based off the prompt of selected size
+    const aiResponse = await openai.images.generate({         // Create 1 image based off the prompt of selected size
         prompt,                  
         n: 1,
-        size: '1024x1024',
+        size: '512x512',
     });
 
-    const image = aiResponse.data.data[0].url;  // Image URL response object
+    const image = aiResponse.data[0].url;  // Image URL response object
     res.send({ image });  // Send image in response 
 })
 
-app.listen(8000, () => console.log('View the app: http://localhost:8000/dream'));
+app.listen(8080, () => console.log('View the app: http://localhost:8080/dream'));
