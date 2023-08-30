@@ -4,6 +4,7 @@ const form = document.querySelector('form');       // Select the form object fro
 
 form.addEventListener('submit', async (e) => {                         // Listen to submit events -- if so asynch call back function 
     e.preventDefault();
+    showSpinner();
 
     const data = new FormData(form);                                  // Access form data in correct structure 
 
@@ -20,8 +21,10 @@ form.addEventListener('submit', async (e) => {                         // Listen
     const { image } = await response.json();                                   // Image = response JSON
 
     const result = document.querySelector('#result');                         
-    result.innerHTML = `<img src="${image}" width="512" />`;                  // Select result tag from Dom and change html to image url
-});
+    result.innerHTML = `<img src="${image}" width="512" />`;         // Select result tag from Dom and change html to image url
+
+    hideSpinner();
+  });
 
 function showSpinner() {
   const button = document.querySelector('button');
