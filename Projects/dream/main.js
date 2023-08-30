@@ -28,3 +28,9 @@ function showSpinner() {
   button.disabled = true;
   button.innerHTML = 'Dreaming... <span class="spinner">🧠</span>'
 }
+
+function showSpinner() {
+  const button = document.querySelector('button');
+  button.disabled = false;
+  button.innerHTML = 'Dream';
+}
