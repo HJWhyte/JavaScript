@@ -22,3 +22,9 @@ form.addEventListener('submit', async (e) => {                         // Listen
     const result = document.querySelector('#result');                         
     result.innerHTML = `<img src="${image}" width="512" />`;                  // Select result tag from Dom and change html to image url
 });
+
+function showSpinner() {
+  const button = document.querySelector('button');
+  button.disabled = true;
+  button.innerHTML = 'Dreaming... <span class="spinner">🧠</span>'
+}
